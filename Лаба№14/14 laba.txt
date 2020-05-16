@@ -1,0 +1,130 @@
+Голосов Илья Сергеевич
+Лабораторная работа №14
+Создать список из десяти строк(идентификаторов).
+Длина каждой строки не более восьми символов. Составить функции для:
+1. печати списка;
+2. удаления из списка всех идентификатор, следующего после заданного идентификатора.
+3. Добавления в список нового элемента перед каждый из идентификаторов, совпадающих с заданным.
+
+#include <stdio.h>
+#include <malloc.h>
+#include <locale.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct List
+{
+	char name[9];
+	List* next;
+} *current, *temp;
+
+void InputList()
+{
+	while (current != NULL)
+	{
+		printf("%9s", current->name);
+		current = current->next;
+	}
+}
+
+void DeleteElementAtList(char str[9])
+{
+	int isFound = 0;
+	List* linkToDelete = NULL;
+
+	while (current != NULL)
+	{
+		if (isFound)
+		{
+			temp = current;
+			current = current->next;
+			free(temp);
+		}
+		else
+		{
+			if (strcmp(current->name, str) == 0)
+			{
+				if (strstr(current->name, str) != 0)
+				{
+					isFound = 1;
+					linkToDelete = current;
+				}
+			}
+			current = current->next;
+		}
+	}
+
+	if (linkToDelete != NULL)
+	{
+		linkToDelete->next = NULL;
+	}
+}
+
+void AddElement(char str[9])
+{
+	while (current != NULL)
+	{
+		if (strcmp(current->name, str) == 0)
+		{
+			if (strstr(current->name, str) != 0)
+			{
+				while (getchar() != '\n');
+
+				temp = (List*)malloc(sizeof(List));
+				temp->next = current->next;
+				current->next = temp;
+				printf("Введите имя\n");
+				scanf_s("%9s", temp->name, 8);
+			}
+		}
+		current = current->next;
+	}
+}
+
+int main(int argc, char* argv)
+{
+	setlocale(LC_ALL, "Rus");
+
+	int count = 10;
+	char userStr[9];
+	List* startElement;
+
+	temp = (List*)malloc(sizeof(List));
+	current = temp;
+	startElement = temp;
+	printf("Введите имя\n");
+	scanf_s("%15s", current->name, 9);
+
+	for (int i = 1; i < count; i++)
+	{
+		while (getchar() != '\n');
+
+		temp = (List*)malloc(sizeof(List));
+		temp->next = NULL;
+		current->next = temp;
+		current = temp;
+		printf("\nВведите имя\n");
+		scanf_s("%15s", current->name, 9);
+	}
+
+	current = startElement;
+	InputList();
+
+	printf("\nВведите строку c которой нужно удалить");
+	scanf_s("%9s", userStr, 8);
+	current = startElement;
+	DeleteElementAtList(userStr);
+
+	current = startElement;
+	InputList();
+
+	printf("\nВведите строку для поиска");
+	scanf_s("%9s", userStr, 8);
+	current = startElement;
+	AddElement(userStr);
+
+	current = startElement;
+	InputList();
+
+	return 0;
+}

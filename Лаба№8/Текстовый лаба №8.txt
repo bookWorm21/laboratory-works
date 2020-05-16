@@ -1,0 +1,114 @@
+#include <stdio.h>
+#include <malloc.h>
+#include <locale.h>
+#include <string.h>
+
+char* AnalogHundler(char* str1, char* str2)
+{
+	char* k = 0;
+	char* tempK = 0;
+	int flag = 0;
+	int tempI;
+
+	for (int i = 0; str1[i] != '\0', flag == 0; i++)
+	{
+		flag = 1;
+
+		if (str1[i] == str2[0])
+		{
+			tempK = &(str1[i]);
+			tempI = i;
+			i++;
+			
+			for (int j = 1; str2[j] != '\0' && str1[i] != '\0'; j++, i++)
+			{
+				if (str1[i] != str2[j])
+				{
+					flag = 0;
+				}
+			}
+
+			if (flag)
+			{
+				k = tempK;
+			}
+			i = tempI;
+		}
+		else
+		{
+			flag = 0;
+		}
+	}
+
+	return k;
+}
+
+int main(int argc, char* argv)
+{
+	setlocale(LC_ALL, "Rus");
+
+	char str1[20] = "little youyour dog";
+	char str2[5] = "your";
+
+	if (strstr(str1, str2) == AnalogHundler(str1, str2))
+	{
+		printf("Функция написана правильно");
+	}
+	else
+	{
+		printf("Функия написана неправильно");
+	}
+
+	return 0;
+}
+
+2.6
+Вычисляет сумму чисел, которые встречаются в предложении
+
+#include <stdio.h>
+#include <locale.h>
+#include <malloc.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
+
+int StringHundler(char* str)
+{
+	int sum = 0;
+	int isNumber = 1;
+
+	char step = ' ';
+	char* next = NULL;
+	str = strtok_s(str, " ", &(next));
+
+	while (str != NULL)
+	{
+		isNumber = 1;
+
+		for (int i = 0; str[i] != '\0'; i++)
+		{
+			if (isdigit(str[i]) == false)
+			{
+				isNumber = 0;
+			}
+		}
+
+		if (isNumber)
+		{
+			sum += atoi(str);
+		}
+
+		str = strtok_s(NULL, " ", &(next));
+	}
+
+	return sum;
+}
+
+int main(int argc, char* argv)
+{
+	char str[100] = "1 2 3 4 12 user track5";
+
+	printf("%d", StringHundler(str));
+
+	return 0;
+}

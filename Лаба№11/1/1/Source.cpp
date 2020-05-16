@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <locale.h>
+
+int GuessNumber(int number)
+{
+	int userInput = 1;
+	int userNumber;
+	
+	printf("Загаданное число лежим в диапозаоне от %d до %d \n", number / 10 * 10 , (number / 10 + 1) * 10);
+
+	while (userInput != 0)
+	{
+		printf("Выберете действие, указав соответствующий номер \n");
+		printf("1 - продолжить игру \n");
+		printf("0 - выйти \n");
+		
+		scanf_s("%d", &userInput);
+
+		if (userInput == 0)
+		{
+			return 0;
+		}
+		else if (userInput == 1)
+		{
+			printf("Попробуйте угадать число \n");
+			
+			while (scanf_s("%d", &userNumber) != 1 )
+			{
+				printf("Число введено неправлиьно\n");
+				printf("Введите корректное число\n");
+				while (getchar() != '\n');
+			}
+			
+			if (userNumber > number)
+			{
+				printf("Загаданное число меньше \n");
+			}
+			else if( userNumber < number)
+			{
+				printf("Загаданное число больше \n");
+			}
+			else
+			{
+				printf("Вы угадали число!!! \n");
+				return 1;
+			}
+		}
+		else
+		{
+			printf("Введите корректную команду \n");
+		}
+
+	}
+	return 0;
+}
+
+int main(int argc, char* argv)
+{
+	setlocale(LC_ALL, "Rus");
+
+	int x = rand() % 100;
+
+	GuessNumber(x);
+
+	return 0;
+}

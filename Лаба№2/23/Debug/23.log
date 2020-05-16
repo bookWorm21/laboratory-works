@@ -1,0 +1,4 @@
+﻿  Source.cpp
+E:\free time\Program\justC\C_Хафизова\Лаба№2\23\Source.cpp(14,32): warning C4305: +=: усечение из "double" в "float"
+E:\free time\Program\justC\C_Хафизова\Лаба№2\23\Source.cpp(16,19): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+  23.vcxproj -> E:\free time\Program\justC\C_Хафизова\Лаба№2\3\3\Debug\23.exe

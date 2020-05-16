@@ -1,0 +1,5 @@
+﻿  Source.cpp
+E:\freeTime\Program\familyC\justC\C_Хафизова\Лаба№8\aboutSana\aboutSana\Source.cpp(44,10): warning C4473: "scanf_s": передано недостаточно аргументов для строки формата
+E:\freeTime\Program\familyC\justC\C_Хафизова\Лаба№8\aboutSana\aboutSana\Source.cpp(44,10): message : заполнители и их параметры ожидают переменное число аргументов в количестве 1, но было предоставлено 0
+E:\freeTime\Program\familyC\justC\C_Хафизова\Лаба№8\aboutSana\aboutSana\Source.cpp(44,10): message : отсутствующий вариативный аргумент "1" требуется для строки форматирования "%d"
+  aboutSana.vcxproj -> E:\freeTime\Program\familyC\justC\C_Хафизова\Лаба№8\aboutSana\Debug\aboutSana.exe

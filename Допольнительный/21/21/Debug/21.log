@@ -1,0 +1,3 @@
+﻿  Source.cpp
+E:\free time\Program\justC\C_Хафизова\Допольнительный\21\21\Source.cpp(11,6): warning C4101: enought: неиспользованная локальная переменная
+E:\free time\Program\justC\C_Хафизова\Допольнительный\21\21\Source.cpp(20): error C4700: использована неинициализированная локальная переменная "y"
