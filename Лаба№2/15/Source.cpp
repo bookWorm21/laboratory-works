@@ -2,6 +2,7 @@
 #include <math.h>
 #include <locale.h>
 #include <math.h>
+#include <locale.h>
 
 int main(int argc, char* argr[])
 {

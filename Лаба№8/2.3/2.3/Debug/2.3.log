@@ -1,0 +1,5 @@
+﻿  Source.cpp
+E:\freeTime\Program\familyC\justC\C_Хафизова\laboratory-works\Лаба№8\2.3\2.3\Source.cpp(31,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+E:\freeTime\Program\familyC\justC\C_Хафизова\laboratory-works\Лаба№8\2.3\2.3\Source.cpp(38,20): warning C4474: "printf" : для строки формата передано слишком много аргументов
+E:\freeTime\Program\familyC\justC\C_Хафизова\laboratory-works\Лаба№8\2.3\2.3\Source.cpp(38,20): message : заполнители и их параметры ожидают переменное число аргументов в количестве 1, но было предоставлено 2
+  2.3.vcxproj -> E:\freeTime\Program\familyC\justC\C_Хафизова\laboratory-works\Лаба№8\2.3\Debug\2.3.exe

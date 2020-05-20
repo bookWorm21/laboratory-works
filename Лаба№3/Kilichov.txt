@@ -1,0 +1,173 @@
+2. Заполнить массив M(10) случайными числами. Подсчитать и вывести на экран сумму положительных элементов.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+void main()
+{
+	const int n = 10;
+	int mas[n];
+	int count = 0;
+
+	for (int i = 0; i < n; i++)
+	{
+		mas[i] = rand() % 10 - rand() % 15;
+		printf("%d ", mas[i]);
+		if (mas[i] > 0)
+		{
+			count++;
+		}
+	}
+	printf("\n%d", count);
+}
+
+11. Дан массив Е(10). Значени элементов ввести с клавиатуры. Выяснить, сколько чисел встречается в массиве только один раз.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+
+	const int n = 10;
+
+	int array[n];
+	int flags[n];
+
+	int naydeno = 0;
+	int count = 0;
+
+	for (int i = 0; i < n; i++)
+	{
+		flags[i] = 0;
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		scanf_s("%d", &array[i]);
+		printf("%d ", array[i]);
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		if (flags[i] == 0)
+		{
+			for (int j = i + 1; j < n; j++)
+			{
+				if (array[i] == array[j])
+				{
+					flags[j] = 1;
+					naydeno = 1;
+				}
+			}
+			if (naydeno == 0)
+			{
+				count++;
+			}
+			naydeno = 0;
+		}
+	}
+
+	printf("\n%d", count);
+}
+
+12. Даны три массива A(5), B(5) и C(5). Заполнить эти массивы случайными числами. Получить новый массив D по следующему правилу
+D0 = A0;
+D1= B0;
+D2 = C0;
+D3 = A1;
+...
+
+#include <stdio.h>
+#include <math.h>
+#include <locale.h>
+#include <stdlib.h>
+
+int main(int argc, char* argr[])
+{
+	setlocale(LC_ALL, "Rus");
+
+	const int n = 5;
+	int arrayA[n];
+	int arrayB[n];
+	int arrayC[n];
+
+	int arrayD[n * 3];
+
+	for (int i = 0; i < n; i++)
+	{
+		arrayA[i] = rand() % 100;
+		arrayB[i] = rand() % 100;
+		arrayC[i] = rand() % 100;
+	}
+	
+	int k = 0; 
+
+	for (int i = 0; i < n; i++)
+	{
+		arrayD[k++] = arrayA[i];
+		arrayD[k++] = arrayB[i];
+		arrayD[k++] = arrayC[i];
+	}
+
+	printf("Массив A  ");
+	for (int i = 0; i < n; i++)
+	{
+		printf(" %d", arrayA[i]);
+	}
+
+	printf("\nМассив B  ");
+	for (int i = 0; i < n; i++)
+	{
+		printf(" %d", arrayB[i]);
+	}
+
+	printf("\nМассив C  ");
+	for (int i = 0; i < n; i++)
+	{
+		printf(" %d", arrayC[i]);
+	}
+
+	printf("\nМассив D  ");
+	for (int i = 0; i < n * 3; i++)
+	{
+		printf(" %d", arrayD[i]);
+	}
+
+	
+
+	return 0;
+}
+
+15. Дан массив R(5). Значения элементов массива ввести с клавиатуры. Найти сумму значений |Ri - Rj|, где 0 <=i < j < 5.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <math.h>
+
+void main()
+{
+	const int n = 5;
+	int mas[n];
+	int sum = 0;
+
+	for (int i = 0; i < n; i++)
+	{
+		scanf_s("%d", &mas[i]);
+		printf("%d ", mas[i]);
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = i + 1; j < n; j++)
+		{
+			sum += abs(mas[i] - mas[j]);
+		}
+	}
+
+	printf("\n%d", sum);
+}

@@ -1,0 +1,107 @@
+3. Дана непустая последовательность положительных целых чисел, за которыми следует 0(признак конца последовательности).
+Вычислить среднее арифмитическое этих чисел.
+
+#include <stdio.h>
+#include <locale.h>
+
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+
+	int count = 0, sum = 0, number;
+	printf("Введите число\n ");
+	scanf_s("%d", &number);
+
+	while (number != 0)
+	{
+		count++;
+		sum += number;
+		printf("Введите число\n ");
+		scanf_s("%d", &number);
+	}
+	printf("Среднее арифмитическое = %d", sum / count);
+}
+
+7.Дано целое n>0, за которым следует n вещественных чисел. Определить сколько среди них отрицательные.
+
+#include <stdio.h>
+#include <locale.h>
+
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+
+	int n;
+	printf("Введите количество чисел\n");
+	scanf_s("%d", &n);
+	int number, count = 0;
+	for (int i = 0; i < n; i++)
+	{
+		printf("Введите число\n");
+		scanf_s("%d", &number);
+		if (number < 0)
+		{
+			count++;
+		}
+	}
+	printf("Отрицательных - %d", count);
+}
+
+18. Дана последовательность символов, которая заканчивается точкой. Определить, скоько раз в этой последовательности встречается сочетание "no".
+
+#include <locale.h>
+#include <stdio.h>
+
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+
+	char a, b;
+	int count = 0;
+
+	printf("Введите символ ");
+	scanf_s("%c", &a, 1);
+
+	while (a != '.')
+	{
+		while (getchar() != '\n');
+		b = a;
+		printf("Введите символ ");
+		scanf_s("%c", &a, 1);
+
+		if (b == 'n' && a == 'o')
+		{
+			count++;
+		}
+	}
+	printf("\nno встречается %d раз", count);
+}
+
+24. Для каждого целого числа из интервала а до b вывести на экран все его делители.
+
+#include <stdio.h>
+#include <locale.h>
+
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+
+	int a, b;
+	printf("\nВведите левое число ");
+	scanf_s("%d", &a);
+	printf("\nВведите правое число ");
+	scanf_s("%d", &b);
+
+	for (int i = a + 1; i < b; i++)
+	{
+		printf(" Для %d ", i);
+		for (int j = 1; j < i / 2; j++)
+		{
+			if (i % j == 0)
+			{
+				printf(" %d", j);
+			}
+		}
+		printf("\n");
+	}
+}

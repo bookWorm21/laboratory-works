@@ -1,2 +1,3 @@
 ﻿  Source.cpp
-  1.vcxproj -> E:\freeTime\Program\familyC\justC\C_Хафизова\Лаба№14\1\Debug\1.exe
+E:\freeTime\Program\familyC\justC\C_Хафизова\laboratory-works\Лаба№14\1\1\Source.cpp(127,7): warning C4101: userStr: неиспользованная локальная переменная
+  1.vcxproj -> E:\freeTime\Program\familyC\justC\C_Хафизова\laboratory-works\Лаба№14\1\Debug\1.exe

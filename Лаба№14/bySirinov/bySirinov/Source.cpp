@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <malloc.h>
+#include <string.h>
+
 struct els
 {
     char data[8];
@@ -58,6 +60,34 @@ void cut()
     }
 }
 
+void add()
+{
+    printf("\nVvedite identificator:");
+    char identy[8];
+    while (getchar() != '\n');
+    fgets(identy, 8, stdin);
+    fflush(stdin);
+    p = head;
+    while (p != NULL)
+    {
+        if (strcmp(identy, p->data) == 0)
+        {
+            q = (els*)malloc(sizeof(els));
+            printf("\nZadayte znachenie novomu polu: ");
+            scanf_s("%s", q->data, 8);
+            while (getchar() != '\n');
+            q->next = p->next;
+            p->next = q;
+
+            //fgets(q->data, 8, stdin);
+            //fflush(stdin);
+           // p = q;//эксперимент
+        }
+        p = p->next;
+    }
+}
+
+
 int main()
 {
     int n = 3;
@@ -65,5 +95,7 @@ int main()
     bringout();
     cut();
     bringout();//выводит только первый элемент
+    add();
+    bringout();
     return 0;
 }

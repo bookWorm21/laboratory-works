@@ -1,0 +1,163 @@
+1 задание
+
+Написать функцию, которая возвращает сумму четных элементов двумерного массива, содержащего три столбца. Тип элементов массива - вещественный.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <math.h>
+
+float CountEven(float array[][3], int n)
+{
+	float sum = 0;
+	float a;
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			if (modff(array[i][j], &a) == 0)
+			{
+				if ((int)array[i][j] % 2 == 0)
+				{
+					sum += array[i][j];
+				}
+			}
+		}
+	}
+	return sum;
+}
+
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+
+	const int n = 5;
+	
+	float array[n][3];
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			array[i][j] = rand() % 100;
+			printf("%f  ", array[i][j]);
+		}
+		printf("\n");
+	}
+
+	printf("Сумма четных элементов - %f", CountEven(array, n));
+}
+
+7 задание
+
+Написать функцию, которая возвращает количество элементов двухмерного массива, лежащих в заданном диапозоне. Тип элементов массива - вещественный.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <malloc.h>
+#include <locale.h>
+
+int HandlerArray(float* array, float leftBorder, float rightBorder, int n)
+{
+	int number = 0;
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (array[i * n + j] >= leftBorder && array[i * n + j] <= rightBorder)
+			{
+				number++;
+			}
+		}
+	}
+	return number;
+}
+
+void()
+{
+	setlocale(LC_ALL, "Rus");
+
+	const int n = 10;
+	int number;
+	float left, right;
+
+	printf("Введите количество  размерность");
+	scanf_s("%d", &n);
+
+	printf("Введите левую границу ");
+	scanf_s("%e", &left);
+	printf("Введите правую границу ");
+	scanf_s("%e", &right);
+
+	float array[n][n];
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			array[i][j] = rand() % 100;
+			printf("%f  ", array[i][j]);
+		}
+		printf("\n");
+	}
+
+	number = HandlerArray(&(array[0][0]), left, right, n);
+	printf("\nКоличество чисел в заданном диапозоне - %d", number);
+}
+
+11 задание
+
+Написать функцию, которая возвращает количество отрицательных элементов динамического двумерного массива. Тип элементов в массиве - вещественный.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <locale.h>
+#include <malloc.h>
+
+int NumberOfNegative(float** array, int line, int column)
+{
+	int k = 0;
+	for (int i = 0; i < line; i++)
+	{
+		for (int j = 0; j < column; j++)
+		{
+			if (array[i][j] < 0)
+			{
+				k++;
+			}
+		}
+	}
+	return k;
+}
+
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+
+	int line, column;
+	printf("Введите количество строчек ");
+	scanf_s("%d", &line);
+	printf("Введите количество столбцов ");
+	scanf_s("%d", &column);
+
+	float** array = (float**)malloc(line * sizeof(float*));
+
+	for (int i = 0; i < line; i++)
+	{
+		array[i] = (float*)malloc(column * sizeof(float));
+	}
+
+	for (int i = 0; i < line; i++)
+	{
+		for (int j = 0; j < column; j++)
+		{
+			array[i][j] = (float)(rand() % 100 - 50);
+			printf("%f  ", array[i][j]);
+		}
+		printf("\n");
+	}
+
+	printf("Количество отрицательных элементов в массиве - %d", NumberOfNegative(array, line, column));
+}

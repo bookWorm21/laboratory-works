@@ -1,0 +1,159 @@
+1.Заполнить массив А(10 * 10) следующим образом : 
+0 0 0 .. 0
+0 1 0 .. 0
+0 0 2 .. 0
+0 0 0 .. 0
+
+#include <stdio.h>
+
+void main()
+{
+	int const num = 10;
+	int mass[num][num] = { 0 };
+	for (int i = 0; i < num; i++)
+		mass[i][i] = i;
+	for (int i = 0; i < num; i++)
+	{
+		printf("\n");
+		for (int j = 0; j < num; j++)
+			printf(" %d", mass[i][j]);
+	}
+}
+
+
+11. Дан массив А(5 * 5). Вывести его на экран. Найти и вывести на экран сумму и произведение положительных элементов
+строк, которые начинаются с отрицательных элементов.
+
+#include <stdio.h>
+#include <locale.h>
+#include <stdlib.h>
+
+void main()
+{
+	int const num = 5;
+	int A[num][num];
+	int summ = 0, multiple = 1;
+	for (int i = 0; i < num; i++)
+	{
+		for (int j = 0; j < num; j++)
+		{
+			A[i][j] = rand() % 80 - 30;
+			printf("\t%d", A[i][j]);
+		}
+		printf("\n");
+	}
+	for (int i = 0; i < num; i++)
+	{
+		if (A[i][0] < 0)
+		{
+			for (int j = 0; j < num; j++)
+			{
+				if (A[i][j] > 0)
+				{
+					summ += A[i][j];
+					multiple *= A[i][j];
+				}
+			}
+		}
+	}
+	printf("%d\t%d", summ, multiple);
+
+}
+
+13. Дан массив А(10 * 10). Найти количество отрицательных элементов из закрашенной области.
+*****
+.****
+..***
+...**
+....*
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <locale.h>
+
+void main()
+{
+	int const num = 10;
+	int A[num][num];
+	int count = 0;
+	for (int i = 0; i < num; i++)
+	{
+		for (int j = 0; j < num; j++)
+		{
+			A[i][j] = rand() % 80 - 30;
+			printf("\t%d", A[i][j]);
+		}
+		printf("\n");
+	}
+	for (int i = 0; i < num; i++)
+	{
+		for (int j = i; j < num - i; j++)
+		{
+			if (A[i][j] < 0)
+				count++;
+		}
+	}
+	printf("%d", count);
+}
+
+17. 
+
+#include <stdio.h>
+#include <locale.h>
+#include <stdlib.h>
+
+void main()
+{
+	setlocale(LC_ALL, "Rus");
+
+	const int N = 5;
+	int arrayA[N][N], arrayC[ N * N];
+	int i = 0, j = 0, k = 0;
+	int  count = N - 1;
+	int operations;
+
+	for ( i = 0; i < N; i++)
+	{
+		for ( j = 0; j < N; j++)
+		{
+			arrayA[i][j] = rand() % 10;
+			printf("%d\t", arrayA[i][j]);
+		}
+		printf("\n");
+	}
+
+	j = 0;
+	i = 0;
+
+	while (count > 0)
+	{
+		for (operations = 0; operations < count; j++,operations++)
+			arrayC[k++] = arrayA[i][j];
+	
+		for ( operations = 0; operations < count; i++,operations++)
+			arrayC[k++] = arrayA[i][j];
+
+
+		for (operations = 0; operations < count; j--,operations++)
+			arrayC[k++] = arrayA[i][j];
+
+
+		for (operations = 0; operations < count; i--,operations++)
+			arrayC[k++] = arrayA[i][j];
+
+		count -= 2;
+		j++;
+		i++;
+	}
+
+	if (N / 2 != 0)
+	{
+		arrayC[N*N - 1] = arrayA[ N / 2][ N / 2];
+	}
+	
+	printf("\n\n");
+	for (i = 0; i < N * N; i++)
+	{
+		printf("%d   ", arrayC[i]);
+	}
+}
