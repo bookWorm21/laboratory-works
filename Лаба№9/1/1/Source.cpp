@@ -38,6 +38,11 @@ int f7(int x)
 	return (5 - x) / x;
 }
 
+int function(int (*first)(int), int (*second)(int), int x)
+{
+	return first(x) - second(x);
+}
+
 int TwoFunctionHundler(studyFinction first, studyFinction second, int x)
 {
 	return first(x) - second(x);
@@ -51,7 +56,8 @@ int main(int argc, char* argv)
 	printf("Введите число\n");
 	scanf_s("%d", &number);
 
-	printf("Результат - %d", TwoFunctionHundler(f1, f2, number));
-
+	printf("Результат функции с пользовательским типом - %d\n", TwoFunctionHundler(f1, f2, number));
+	printf("Результат обычной функции - %d", TwoFunctionHundler(f1, f2, number));
+	
 	return 0;
 }
