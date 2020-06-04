@@ -98,62 +98,58 @@ void main()
 
 17. 
 
+Даны два массива A (2,3) и B (3,4). 
+Найти их произведение и вывести на экран полученный массив.
+
 #include <stdio.h>
 #include <locale.h>
 #include <stdlib.h>
+#include <math.h>
 
-void main()
+int main(int argc, char* argv[])
 {
-	setlocale(LC_ALL, "Rus");
+	printf("Hello world\n");
+	setlocale(LC_ALL, "RUS");
+	
+	int arrayA[2][3], arrayB[3][4], arrayResult[2][4] = {};
 
-	const int N = 5;
-	int arrayA[N][N], arrayC[ N * N];
-	int i = 0, j = 0, k = 0;
-	int  count = N - 1;
-	int operations;
-
-	for ( i = 0; i < N; i++)
+	printf("\nМатрица 1:");
+	printf("\n");
+	for (int i = 0; i < 2; i++)
 	{
-		for ( j = 0; j < N; j++)
+		for (int j = 0; j < 3; j++)
 		{
-			arrayA[i][j] = rand() % 10;
-			printf("%d\t", arrayA[i][j]);
+			arrayA[i][j] = rand() % 4;
+			printf("%d \t", arrayA[i][j]);
 		}
 		printf("\n");
 	}
 
-	j = 0;
-	i = 0;
-
-	while (count > 0)
+	printf("\nМатрица 2:");
+	printf("\n");
+	for (int i = 0; i < 3; i++)
 	{
-		for (operations = 0; operations < count; j++,operations++)
-			arrayC[k++] = arrayA[i][j];
-	
-		for ( operations = 0; operations < count; i++,operations++)
-			arrayC[k++] = arrayA[i][j];
-
-
-		for (operations = 0; operations < count; j--,operations++)
-			arrayC[k++] = arrayA[i][j];
-
-
-		for (operations = 0; operations < count; i--,operations++)
-			arrayC[k++] = arrayA[i][j];
-
-		count -= 2;
-		j++;
-		i++;
+		for (int j = 0; j < 4; j++)
+		{
+			arrayB[i][j] = rand() % 3;
+			printf("%d \t", arrayB[i][j]);
+		}
+		printf("\n");
 	}
 
-	if (N / 2 != 0)
+	printf("\nИтоговый матрица:");
+	printf("\n");
+	for (int i = 0; i < 2; i++)
 	{
-		arrayC[N*N - 1] = arrayA[ N / 2][ N / 2];
+		for (int j = 0; j < 4; j++)
+		{
+			for (int k = 0; k < 3; k++)
+			{			
+					arrayResult[i][j] += arrayA[i][k] * arrayB[k][j];
+			}
+			printf("%d \t", arrayResult[i][j]);
+		}
+		printf("\n");
 	}
-	
-	printf("\n\n");
-	for (i = 0; i < N * N; i++)
-	{
-		printf("%d   ", arrayC[i]);
-	}
+	return 0;
 }

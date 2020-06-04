@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
 		i++;
 	}
 
-	if (N / 2 != 0)// ≈сли количество строк четно то не выполн€ем
+	if (N / 2 != 0)
 	{
 		arrayC[N*N - 1] = arrayA[ N / 2][ N / 2];
 	}

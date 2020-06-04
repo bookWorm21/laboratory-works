@@ -5,10 +5,12 @@
 
 int main(int argc, char* argv)
 {
-#define circleArea(r) (r * r * 3.14159265f)
+#define circleArea(r) ((r) * (r) * 3.14159265f)
 #define n 10
 #if(n > 0)
 	int array[n];
+#else
+	int array[10];
 #endif
 
 	setlocale(LC_ALL, "Rus");
